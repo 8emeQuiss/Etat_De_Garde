@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add poste</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        ul { list-style: none; padding: 0; }
+        li { 
+            background: #f4f4f4; 
+            margin: 5px 0; 
+            padding: 10px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        button { margin-left: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Todo List</h2>
+
+    <input type="text" id="taskInput" placeholder="Écrire une tâche..." />
+    <button onclick="addTask()">Ajouter</button>
+
+    <h3>Liste des postes</h3>
+    <ul id="taskList"></ul>
+
+    <h3>Tester les fonctions</h3>
+    <button onclick="loadTasks()">Charger les postes</button>
+    <button onclick="clearTasks()">Vider la liste</button>
+
+    <script>
+        // Fonction pour charger les postes
+        function loadTasks() {
+            let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            let taskList = document.getElementById("taskList");
+            taskList.innerHTML = ""; // Vider la liste
+
+            tasks.forEach((task, index) => {
+                let li = document.createElement("li");
+                li.textContent = task;
+
+                let deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "❌";
+                deleteBtn.onclick = () => deleteTask(index);
+
+                li.appendChild(deleteBtn);
+                taskList.appendChild(li);
+            });
+        }
+
+        // Fonction pour ajouter une nouvelle tâche
+        function addTask() {
+            let taskInput = document.getElementById("taskInput");
+            let taskText = taskInput.value.trim();
+
+            if (taskText !== "") {
+                let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+                tasks.push(taskText);
+                localStorage.setItem("tasks", JSON.stringify(tasks));
+                taskInput.value = ""; // Vider l'input
+                loadTasks(); // Mettre à jour l'affichage
+            }
+        }
+
+        // Fonction pour supprimer une tâche
+        function deleteTask(index) {
+            let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            tasks.splice(index, 1);
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            loadTasks();
+        }
+
+        // Fonction pour vider toutes les postes
+        function clearTasks() {
+            localStorage.removeItem("tasks");
+            loadTasks();
+        }
+
+        // Charger les postes au démarrage
+        window.onload = loadTasks;
+    </script>
+</body>
+</html>
