@@ -8,6 +8,7 @@
           if (storedData) {
             const jsonData = JSON.parse(storedData);
             generatePosts(jsonData);
+         
           } else {
             alert(
               "No data found to regenerate posts. Please upload and convert an Excel file first."
@@ -35,7 +36,7 @@
           const tr = document.createElement("tr");
           headers.forEach((header) => {
             const td = document.createElement("td");
-            td.textContent = row[header] || "";
+            td.textContent = row[header ] || "";
             tr.appendChild(td);
           });
           tableBody.appendChild(tr);

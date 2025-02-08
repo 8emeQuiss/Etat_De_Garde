@@ -19,6 +19,7 @@
             postCard.className = "col";
             let listItems = "";
             let postNames = []; // Store names for this post
+            let count =[];
             for (let j = 0; j < namesPerPost; j++) {
               const randomIndex = (i * namesPerPost + j) % shuffledData.length;
               const keys = Object.keys(shuffledData[randomIndex]);

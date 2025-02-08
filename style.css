@@ -6,3 +6,91 @@ background-color: aliceblue;
 .list-group-item{
     text-decoration: none;
 }
+
+
+.navbar{
+    background-color: green !important;
+}
+
+.navbar-brand {
+    font-family: "Protest Guerrilla", sans-serif;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* Add this CSS to make navbar sticky */
+.sticky-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* To make sure it's on top of other content */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  }
+
+  
+/* Container to position the image */
+.input-file-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 600px; /* Adjust width as needed */
+    margin: 0 auto;
+  }
+  
+  /* Hide the default file input */
+  #excelFile {
+    display: none;
+  }
+  
+  /* Style for the custom file input to look like an image */
+  .custom-file-btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 600px; /* Max width for the image */
+    height: 400px; /* Adjust height for the image look */
+    background-image: url('./excel.png'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    /* border: 2px solid #ddd; */
+    border-radius: 50px;
+    margin-left: 20rem;
+    margin-top: 3rem;
+    transition: opacity 0.3s;
+  }
+  
+  .custom-file-btn:hover {
+    opacity: 0.8; /* Slight fade effect when hovered */
+  }
+  
+  /* Display file name below the image */
+  #file-name {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    color: #615c5c;
+  }
+
+
+
+
+  /* Center the buttons container */
+.buttons-container {
+    display: flex;
+    justify-content: center; /* Centers buttons horizontally */
+    gap: 20px; /* Adds space between the buttons */
+    margin-top: 20px; /* Optional: Adds space above the buttons */
+  }
+  
+  /* Optional: Styling for buttons */
+  .btn {
+    padding: 10px 20px; /* Adjust the padding to make buttons bigger if needed */
+  }
+  
