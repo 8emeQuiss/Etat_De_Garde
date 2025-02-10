@@ -5,6 +5,7 @@
         .addEventListener("click", (e) => {
           e.preventDefault();
           const storedData = localStorage.getItem("jsonData");
+     
           if (storedData) {
             const jsonData = JSON.parse(storedData);
             generatePosts(jsonData);
